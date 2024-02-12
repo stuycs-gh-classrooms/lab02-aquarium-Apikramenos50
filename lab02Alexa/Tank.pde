@@ -33,20 +33,25 @@ class Tank {
     //Display animals?
     for (int i = 0; i < numAnimals; i++) {
       a.get(i).display();
-      a.get(i).move(this);
     }
   }
   
   void addAnimal(int x, int y) {
-    if (int(random(51)) < 50) {
-      SwordFish l = new SwordFish(x, y);
+    if (int(random(100)) < 50) {
+      PufferFish l = new PufferFish(x, y);
       a.add(l);
     }
     else {
-      Crab l = new Crab(x, y);
+      Crab l = new Crab(this);
       a.add(l);
     }
     numAnimals++;
+  }
+  
+  void moveAnimals() {
+    for (int i = 0; i < numAnimals; i++) {
+      a.get(i).move(this);
+    }
   }
   
 }

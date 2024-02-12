@@ -21,6 +21,12 @@ class Animal {
     aspeed = new PVector();
     aspeed.x=int(random(-5, 6));
     aspeed.y=int(random(-5, 6));
+    while (aspeed.x == 0) {
+      aspeed.x=int(random(-5, 6));
+    }
+    while (aspeed.y == 0) {
+      aspeed.y=int(random(-5, 6));
+    }
     acolr=color(int(random(255)), int(random(255)), int(random(255)));
     asiz=40;
    }

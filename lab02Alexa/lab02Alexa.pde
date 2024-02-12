@@ -21,16 +21,18 @@ void setup() {
 
 void draw() {
   background(150);
-  //t.moveAnimals();
+  t.moveAnimals();
   t.display();
-  for (int i = 0; i <t.numAnimals; i++) {
+  /* for (int i = 0; i <t.numAnimals; i++) {
     if (t.a.get(i).type == 1) {
       image(img0, t.a.get(i).apos.x-50, t.a.get(i).apos.y-50, 100, 100);
     }
     else {
       image(img1, t.a.get(i).apos.x-50, t.a.get(i).apos.y-50, 100, 100);
     }
+    
   }
+  */
 }
 
 void mouseClicked() {

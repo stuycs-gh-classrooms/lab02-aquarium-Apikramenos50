@@ -7,5 +7,7 @@ class PufferFish extends Animal {
     type=1;
   }
   //Methods
-  
+  void display() {
+    image(img0, apos.x-50, apos.y-50, 100, 100);
+  }
 }
