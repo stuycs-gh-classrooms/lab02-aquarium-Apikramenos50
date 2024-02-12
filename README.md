@@ -2,9 +2,9 @@
 # Aquarium Lab
 #### Name:
 #### TableBuddies+™
-- TB+ 0:
-- TB+ 1:
-- TB+ 2:
+- TB+ 0:Alexa Pikramenos
+- TB+ 1: Ziyad Hamed
+- TB+ 2: Nia Lam
 
 ---
 ### Instructions
