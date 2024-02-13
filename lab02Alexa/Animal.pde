@@ -49,5 +49,17 @@ class Animal {
     fill(acolr);
     circle(apos.x, apos.y, asiz);
   }
+ 
+  void form(boolean p) {
+    //Nothing bc this doesn't affect gen 
+  }
   
+  boolean collide (Animal other) {
+    if (other != this) {
+      return (dist(this.apos.x, this.apos.y, other.apos.x, other.apos.y) <= (this.asiz/2 + other.asiz/2));
+    }
+    else {
+      return false;
+    }
+  }
 }

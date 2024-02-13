@@ -7,6 +7,7 @@ int tankH;
 
 PImage img0;
 PImage img1;
+PImage img2;
 
 void setup() {
   size(600, 600);
@@ -14,8 +15,9 @@ void setup() {
   tankH = height - 50;
   t = new Tank(tankX, tankY, tankW, tankH, floorH);
   t.display();
-  img0 = loadImage("puffer-removebg-preview.png");
+  img0 = loadImage("bigPuff-removebg-preview.png");
   img1 = loadImage("crab-removebg-preview.png");
+  img2 = loadImage("smallPuff-removebg-preview.png");
 }//setup
 
 
@@ -23,17 +25,20 @@ void draw() {
   background(150);
   t.moveAnimals();
   t.display();
-  /* for (int i = 0; i <t.numAnimals; i++) {
-    if (t.a.get(i).type == 1) {
-      image(img0, t.a.get(i).apos.x-50, t.a.get(i).apos.y-50, 100, 100);
-    }
-    else {
-      image(img1, t.a.get(i).apos.x-50, t.a.get(i).apos.y-50, 100, 100);
-    }
-    
-  }
-  */
+  puffUP(t);
 }
+
+void puffUP(Tank t) {
+  for (int i = 0; i < t.numAnimals; i++) {
+     t.a.get(i).form(false);
+    for (int f = 0; f < t.numAnimals; f++) {
+      if (t.a.get(i).collide(t.a.get(f))) {
+        t.a.get(i).form(true);
+      }
+    }
+  }
+}
+
 
 void mouseClicked() {
   t.addAnimal(mouseX, mouseY);
