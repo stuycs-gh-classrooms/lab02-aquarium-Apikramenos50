@@ -24,8 +24,8 @@ void setup() {
 
 void draw() {
   background(150);
+    t.display();
   t.moveAnimals();
-  t.display();
   puffUP(t);
 }
 
@@ -42,5 +42,20 @@ void puffUP(Tank t) {
 
 
 void mouseClicked() {
-  t.addAnimal(mouseX, mouseY);
+  //t.addAnimal(mouseX, mouseY);
+}
+
+void keyPressed() {
+  if (key == '1') {
+    t.addAnimal(mouseX, mouseY, 1);
+  }
+  else if (key == '2'){
+    t.addAnimal(mouseX, mouseY, 2);
+  }
+  else if (key == '3'){
+    t.addAnimal(mouseX, mouseY, 3);
+  }
+  else if (key == '4'){
+    t.addAnimal(mouseX, mouseY, 4);
+  }
 }

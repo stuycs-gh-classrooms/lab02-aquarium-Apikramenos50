@@ -21,12 +21,12 @@ class Turtle extends Animal {
  
   void display() {
     if (!flipH) {
-      sprite = loadImage("yellow_bellied_slider.psd.png");
+      sprite = loadImage("images-removebg-preview.png");
       image(sprite, apos.x, apos.y, 50, 50);
     }
    
     else {
-      sprite = loadImage("yellow_bellied_slider.psd_rightH.png");
+      sprite = loadImage("images-removebg-preview.png");
       image(sprite, apos.x, apos.y, 50, 50);
     }
   }

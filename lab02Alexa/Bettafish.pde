@@ -1,28 +1,29 @@
 class Bettafish extends Animal {
   ArrayList<Animal> animals;
 
-  Bettafish(int x, int y, int w, int h, ArrayList<Animal> animals) {
+  Bettafish(int x, int y) {
     super(x, y);
     aspeed.x = 2;
     aspeed.y = 2;
-    this.animals = animals;
+    //this.animals = animals;
   }
 
-  void move() {
-    super.move();
-    for (int i = 0; i < animals.size(); i++) {
-        Animal otherAnimal = animals.get(i);
+  void move(Tank t) {
+    super.move(t);
+    for (int i = 0; i < t.a.size(); i++) {
+        Animal otherAnimal = t.a.get(i);
         if (otherAnimal != this && otherAnimal.getClass() == Bettafish.class) {
-            if (apos.x + aw >= otherAnimal.apos.x &&
-                    apos.x <= otherAnimal.apos.x + otherAnimal.aw &&
-                    apos.y + ah >= otherAnimal.apos.y &&
-                    apos.y <= otherAnimal.apos.y + otherAnimal.ah) {
+            if (apos.x + asiz >= otherAnimal.apos.x &&
+                    apos.x <= otherAnimal.apos.x + otherAnimal.asiz &&
+                    apos.y + asiz >= otherAnimal.apos.y &&
+                    apos.y <= otherAnimal.apos.y + otherAnimal.asiz) {
                 int sof = (int) random(2);
                 if (sof == 0) {
-                    animals.remove(i);
+                    t.a.remove(i);
                 } else {
-                    animals.remove(this);
+                    t.a.remove(this);
                 }
+                t.numAnimals--;
             }
         }
     }
@@ -30,6 +31,6 @@ class Bettafish extends Animal {
 
   void display() {
     fill(0, 0, 255);
-    rect(ax, ay, 40, 20);
+    circle(apos.x, apos.y, asiz);
   }
 }

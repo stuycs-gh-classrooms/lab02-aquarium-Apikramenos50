@@ -36,13 +36,21 @@ class Tank {
     }
   }
   
-  void addAnimal(int x, int y) {
-    if (int(random(100)) < 50) {
+  void addAnimal(int x, int y, int ani) {
+    if (ani == 1) {
       PufferFish l = new PufferFish(x, y);
       a.add(l);
     }
-    else {
-      Crab l = new Crab(this);
+    else  if (ani == 2) {
+      Crab l = new Crab(x, this);
+      a.add(l);
+    }
+    else  if (ani == 3) {
+      Bettafish l = new Bettafish(x, y);
+      a.add(l);
+    }
+    else  if (ani == 4) {
+      Turtle l = new Turtle(x, y);
       a.add(l);
     }
     numAnimals++;
@@ -51,6 +59,7 @@ class Tank {
   void moveAnimals() {
     for (int i = 0; i < numAnimals; i++) {
       a.get(i).move(this);
+      println(numAnimals);
     }
   }
   

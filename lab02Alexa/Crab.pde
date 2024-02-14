@@ -3,8 +3,8 @@ class Crab extends Animal {
   boolean clash;
   
   //Constructor(s)
-  Crab (Tank t) {
-    super(int(random(width)), int(random(t.ty+t.th-t.flrHeight, height)));
+  Crab (int x, Tank t) {
+    super(x, int(random(t.ty+t.th-t.flrHeight, height)));
     aspeed.x=int(random(-5, 6));
     aspeed.y=int(random(-5, 6));
     while (aspeed.x == 0) {
