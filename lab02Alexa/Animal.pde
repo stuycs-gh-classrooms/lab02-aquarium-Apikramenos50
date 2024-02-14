@@ -8,9 +8,7 @@ class Animal {
     
    Animal() {
     apos= new PVector(width/2, height/2); 
-    aspeed = new PVector();
-    aspeed.x=int(random(-5, 6));
-    aspeed.y=int(random(-5, 6));
+    aspeed = new PVector(1, 1);
     acolr=color(int(random(255)), int(random(255)), int(random(255)));
     asiz=40;
     type=0;
@@ -18,15 +16,7 @@ class Animal {
    
    Animal(int x, int y) {
     apos= new PVector(x, y); 
-    aspeed = new PVector();
-    aspeed.x=int(random(-5, 6));
-    aspeed.y=int(random(-5, 6));
-    while (aspeed.x == 0) {
-      aspeed.x=int(random(-5, 6));
-    }
-    while (aspeed.y == 0) {
-      aspeed.y=int(random(-5, 6));
-    }
+    aspeed = new PVector(1, 1);
     acolr=color(int(random(255)), int(random(255)), int(random(255)));
     asiz=40;
    }

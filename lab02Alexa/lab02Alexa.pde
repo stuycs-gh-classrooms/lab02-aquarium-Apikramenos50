@@ -8,6 +8,7 @@ int tankH;
 PImage img0;
 PImage img1;
 PImage img2;
+PImage sprite;
 
 void setup() {
   size(600, 600);
