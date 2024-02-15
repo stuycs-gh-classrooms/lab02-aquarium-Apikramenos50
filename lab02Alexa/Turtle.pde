@@ -2,7 +2,8 @@ class Turtle extends Animal {
   PImage sprite;
   int size;
   boolean flipH;
- 
+  boolean hungry;
+  int hunger;
  
   Turtle(int gx, int gy) {
     super(gx, gy);
@@ -29,6 +30,22 @@ class Turtle extends Animal {
       sprite = loadImage("images-removebg-preview.png");
       image(sprite, apos.x, apos.y, 50, 50);
     }
+    if (hungry) {
+      //new display
+    }
   }
+ 
+ void timeForLunch(int x, int y) {
+   if (dist(x, y, apos.x, apos.y) < asiz/2) {
+     hunger++;
+   }
+ }
+ 
+ void die() {
+   if (hunger < 0) {
+     t.numAnimals--;
+     t.a.remove(this);
+   }
+ }
  
 }

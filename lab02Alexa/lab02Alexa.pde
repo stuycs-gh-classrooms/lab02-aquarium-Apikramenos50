@@ -30,10 +30,13 @@ void draw() {
 }
 
 void puffUP(Tank t) {
-  for (int i = 0; i < t.numAnimals; i++) {
+  for (int i = 0; i < t.numAnimals-1; i++) {
      t.a.get(i).form(false);
+     //println("i: " + t.numAnimals);
     for (int f = 0; f < t.numAnimals; f++) {
+      //println("f: " + t.numAnimals);
       if (t.a.get(i).collide(t.a.get(f))) {
+        //println("form: " +t.numAnimals);
         t.a.get(i).form(true);
       }
     }

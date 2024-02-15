@@ -16,6 +16,7 @@ class PufferFish extends Animal {
     if (puff) {
       image(img0, apos.x-50, apos.y-50, 100, 100);
       scared++;
+      println(scared);
     }
     else {
       image(img2, apos.x-50, apos.y-50, 100, 100);
@@ -25,8 +26,9 @@ class PufferFish extends Animal {
   
   void form(boolean p) {
     puff = p;
-    if (scared > 5) {
-      t.a.remove(this)
+    if (scared > 100) {
+      t.numAnimals--;
+      t.a.remove(this);
     }
   }
 }
