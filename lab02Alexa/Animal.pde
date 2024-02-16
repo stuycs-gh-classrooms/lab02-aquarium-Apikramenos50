@@ -4,18 +4,29 @@ class Animal {
     PVector aspeed;
     int asiz;
     color acolr;
-    int type;
     
    Animal() {
     apos= new PVector(width/2, height/2); 
     aspeed = new PVector(1, 1);
     acolr=color(int(random(255)), int(random(255)), int(random(255)));
     asiz=40;
-    type=0;
    }
    
    Animal(int x, int y) {
-    apos= new PVector(x, y); 
+     apos= new PVector(x, y); 
+     println(x);
+    if (x >= 0) {
+      apos.x = 70;
+    } 
+    else if (x > width) {
+      apos.x = width-70;
+    }
+    if (y < t.ty) {
+      apos.y= t.ty+100;
+    }
+    else if (y > t.ty + t.th - t.flrHeight) {
+      apos.y = t.ty + t.th - t.flrHeight-40;
+    }
     aspeed = new PVector(1, 1);
     acolr=color(int(random(255)), int(random(255)), int(random(255)));
     asiz=40;
@@ -52,4 +63,17 @@ class Animal {
       return false;
     }
   }
+  
+    void hungry () {
+    //empty because it does not affect gen animals
+    }
+  
+   void timeForLunch(int x, int y) {
+     //empty because it does not affect gen animals
+   }
+ 
+ void die() {
+   //empty because it does not affect gen animals
+   }
+  
 }

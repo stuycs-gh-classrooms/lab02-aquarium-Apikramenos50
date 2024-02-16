@@ -1,11 +1,18 @@
 class Bettafish extends Animal {
+  //Instance Variables
   ArrayList<Animal> animals;
-
+  PImage img3;
+  
+  /*BETTAFISH: 
+  - dies when it hits another Bettafish  
+  - moves up/down diagonally/across with a 1 to 1 speed ratio
+  */
+  
+  //Constructor(s)
   Bettafish(int x, int y) {
     super(x, y);
     aspeed.x = 2;
     aspeed.y = 2;
-    //this.animals = animals;
   }
 
   void move(Tank t) {
@@ -31,6 +38,8 @@ class Bettafish extends Animal {
 
   void display() {
     fill(0, 0, 255);
-    circle(apos.x, apos.y, asiz);
+    circle(apos.x, apos.y, asiz/3);
+    img3 = loadImage("betta-removebg-preview.png");
+    image(img3, apos.x-40, apos.y-40, 75, 75);
   }
 }

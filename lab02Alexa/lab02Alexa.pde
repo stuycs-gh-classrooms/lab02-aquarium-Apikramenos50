@@ -5,10 +5,8 @@ int floorH = 100;
 int tankW;
 int tankH;
 
-PImage img0;
-PImage img1;
-PImage img2;
-PImage sprite;
+//This determines how many frames pass before one hunger point (out of five) is decreased. I made it a global variable so it's easier to test.
+int whenHungry=300;
 
 void setup() {
   size(600, 600);
@@ -16,9 +14,6 @@ void setup() {
   tankH = height - 50;
   t = new Tank(tankX, tankY, tankW, tankH, floorH);
   t.display();
-  img0 = loadImage("bigPuff-removebg-preview.png");
-  img1 = loadImage("crab-removebg-preview.png");
-  img2 = loadImage("smallPuff-removebg-preview.png");
 }//setup
 
 
@@ -27,22 +22,32 @@ void draw() {
     t.display();
   t.moveAnimals();
   puffUP(t);
+  gettinHungry();
 }
 
 void puffUP(Tank t) {
   for (int i = 0; i < t.numAnimals-1; i++) {
      t.a.get(i).form(false);
-     //println("i: " + t.numAnimals);
     for (int f = 0; f < t.numAnimals; f++) {
-      //println("f: " + t.numAnimals);
       if (t.a.get(i).collide(t.a.get(f))) {
-        //println("form: " +t.numAnimals);
         t.a.get(i).form(true);
       }
     }
   }
 }
 
+void gettinHungry () {
+  for (int i = 0; i < t.numAnimals; i++) {
+    t.a.get(i).hungry();
+  }
+}
+
+void mouseReleased() {
+  println("a");
+  for (int i = 0; i < t.numAnimals; i++) {
+    t.a.get(i).timeForLunch(mouseX, mouseY);
+  }
+}
 
 void mouseClicked() {
   //t.addAnimal(mouseX, mouseY);

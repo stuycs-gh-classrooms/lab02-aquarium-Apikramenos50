@@ -59,7 +59,6 @@ class Tank {
   void moveAnimals() {
     for (int i = 0; i < numAnimals; i++) {
       a.get(i).move(this);
-      println(numAnimals);
     }
   }
   
